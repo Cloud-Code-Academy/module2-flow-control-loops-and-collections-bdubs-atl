@@ -14,13 +14,13 @@
 * in flow control, loops, and collections. By mastering these concepts, developers will be able to write more
 * efficient and effective code in their Salesforce projects.
 *
-* @author Your Name
+* @author Ben Wheeler
 */
 
 public with sharing class FlowControlLoopsCollections {
     
     /**
-     * Question 1
+     * Question 1  <-Correct
      * Compares two numbers and return "Hello World!" if x is greater than the y.
      * If either of the numbers is null or x is less than y, return null.
      * Example: helloWorld(40, 10) should return "Hello World!"
@@ -29,11 +29,16 @@ public with sharing class FlowControlLoopsCollections {
      * @return "Hello World!" if x greater than y, otherwise return null.
      */
     public static String helloWorld(Integer x, Integer y) {
-        return null; // Replace null with the variable you used to store the result
+     // Replace null with the variable you used to store the result
+        String helloWorld = ('Hello World!');
+        If (x > y){
+          return helloWorld; 
+        }
+        else {return null;}
     }
 
     /**
-     * Question 2
+     * Question 2  <---Correct! BW
      * Checks if a person is eligible to vote based on their age.
      * A person is eligible to vote if they are 18 years old or older.
      * If the age is less than 18, the method will return false.
@@ -42,11 +47,12 @@ public with sharing class FlowControlLoopsCollections {
      * @return true if the person is eligible to vote, false otherwise.
      */
     public static Boolean votingEligibility(Integer age) {
-        return null; // Replace null with the variable you used to store the result
+        Boolean isEligibileToVote = (age >= 18);
+         return isEligibileToVote; // Replace null with the variable you used to store the result
     }
 
     /**
-     * Question 3
+     * Question 3  <---?????
      * Finds the maximum of two numbers.
      * If both numbers are equal, it returns that number.
      * Example: findMax(58, 200) should return 200
@@ -63,7 +69,7 @@ public with sharing class FlowControlLoopsCollections {
 
 
     /**
-     * Question 4
+     * Question 4  <---Done! BW
      * Checks if a number is positive, negative, or zero.
      * If the number is null, return null.
      * Example: checkNumber(5) should return "Positive"
@@ -71,11 +77,24 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Positive", "Negative", or "Zero", or null if the number is null.
      */
     public static String checkNumber(Integer a) {
-        return null; // Replace null with the variable you used to store the result
-    }
+        String isPositive = ('Positive');
+        String isNegative = ('Negative');
+        String isZero = ('Zero');
+        If (a == null) {
+            return null;
+        } else if (a > 0) {
+            return isPositive;
+        }else if (a == 0) {
+                return isZero;
+            }else {
+                return isNegative;
+            }
+        }
+         // Replace null with the variable you used to store the result
+    
 
     /**
-     * Question 5
+     * Question 5  <---Done
      * Checks if a number is even or odd.
      * If the number is null, return null.
      * Example: checkEvenOdd(2) should return "Even"
@@ -83,7 +102,14 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Even" or "Odd", or null if the number is null.
      */
     public static String checkEvenOdd(Integer a) {
-        return null; // Replace null with the variable you used to store the result
+       
+        String isEven = ('Even');
+        String isOdd = ('Odd');
+        If (a == null) {
+         return null;
+        } else if (Math.mod(a, 2) == 0) {
+         return isEven;
+     } return isOdd;
     }
 
     /**
