@@ -20,7 +20,7 @@
 public with sharing class FlowControlLoopsCollections {
     
     /**
-     * Question 1  <-Correct
+     * Question 1  <-Correct BW
      * Compares two numbers and return "Hello World!" if x is greater than the y.
      * If either of the numbers is null or x is less than y, return null.
      * Example: helloWorld(40, 10) should return "Hello World!"
@@ -113,18 +113,27 @@ public with sharing class FlowControlLoopsCollections {
     }
 
     /**
-     * Question 6
+     * Question 6 <---Correct! BW
      * Checks if a string is empty, null, or contains text.
      * Example: checkString("") should return "Empty"
      * @param a The string to check.
      * @return A string indicating whether the input is "Empty", "Null", or "Contains Text".
      */
     public static String checkString(String a) {
-        return null; // Replace null with the variable you used to store the result
+        String isEmpty = ('Empty');
+        String isText = ('Contains Text');
+        String isNull = ('Null');
+        if (a == null) {
+            return isNull;
+        } else if (a == '') {
+            return isEmpty;
+        } else {return isText;
+        }
+         // Replace null with the variable you used to store the result
     }
 
     /**
-     * Question 7
+     * Question 7  <--- Done!! BW
      * Determines the grade based on the score.
      * Grade A if score is greater than or equal to 90.
      * Grade B if score is greater than or equal to 80.
@@ -136,7 +145,22 @@ public with sharing class FlowControlLoopsCollections {
      * @return The grade for the given score.
      */
     public static String determineGrade(Integer score) {
-        return null; // Replace null with the variable you used to store the result
+        String gradeIsF = 'F';
+        String gradeIsD = 'D';
+        String gradeIsC = 'C';
+        String gradeIsB = 'B';
+        String gradeIsA = 'A';
+        if (score < 60) {
+            return gradeIsF;
+        } else if (score < 70 && score >= 60) {
+            return gradeIsD;
+        } else if (score < 80 && score >= 70) {
+            return gradeIsC;
+        } else if (score < 90 && score >= 80) {
+            return gradeIsB;
+        } else {
+            return gradeIsA;
+        }
     }
 
 
@@ -158,14 +182,18 @@ public with sharing class FlowControlLoopsCollections {
     }
 
     /**
-     * Question 9
+     * Question 9  DONE... FINALLY!!! - BW  Learned a lot on that one by making a LOT of mistakes.
      * Generate String "Hello World!" three times, with each occurrence separated by a semicolon.
      * Example: returnHelloWorld() should return "Hello World!; Hello World!; Hello World!; "
      * @return The string "Hello World!; Hello World!; Hello World!; "
      */
     public static String returnHelloWorld() {
         // Initialize the result String
-
+        String result = '';
+        for (Integer i = 0; i < 3; i++) {
+            result += 'Hello World!';
+            result += '; ';
+        }
         // Use a for loop to append 'Hello World!;' to the result string three times
         /* 
          for (){
@@ -173,11 +201,11 @@ public with sharing class FlowControlLoopsCollections {
          }
         */
 
-        return null; // Replace null with the variable you used to store the result
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
-     * Question 10
+     * Question 10  <---Done BW 
      * Generate a string where the input string is repeated the given number of times, with each
 	 * repetition separated by a semicolon. 
      * Do not add a semicolon after the last repetition.
@@ -188,39 +216,45 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String repeatString(String inputString, Integer repeatCount) {
         // Initialize the result String
-
+        String result = '';
         // Use a for loop to append the inputString to the result string repeatCount times
         /*
         for () {
-
+        
             // If it is not the last iteration, add a semicolon to separate the strings
         }
         */
-
+        for (Integer i = 0; i < repeatCount; i++) {
+            result += inputString;
+        if (i < repeatCount - 1) {
+            result += '; ';
+        }
+    }
         // Return the final result string
-        return null; // Replace null with the variable you used to store the result
+        return result; 
     }
 
     /**
-     * Question 11
+     * Question 11  <---Done BW
      * Creates a List of integers and adds the integers 1, 2, and 3 to it.
      * Example: createAndPopulateList() should return [1, 2, 3]
      * @return A List of integers containing the numbers 1, 2, and 3.
      */
     public static List<Integer> createAndPopulateList() {
-        // Create a new list of integers
-
+        List<Integer> createAndPopulateList = new List<Integer>();
         // Add the integers 1, 2, and 3 to the list
         // add 1
+        createAndPopulateList.add(1);
         // add 2
+        createAndPopulateList.add(2);
         // add 3
-
+        createAndPopulateList.add(3);
         // Return the populated list
-        return null; // Replace null with the variable you used to store the result
+        return createAndPopulateList; 
     }
 
     /**
-     * Question 12
+     * Question 12  <--- Done! BW
      * Creates a List of integers and adds the integers from 1 to 5. Then it removes the number 3 from the list.
      * Example: createAndRemoveFromList() should return [1, 2, 4, 5]
      * @return A List of integers from 1 to 5, excluding the number 3.
@@ -230,9 +264,9 @@ public with sharing class FlowControlLoopsCollections {
         List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
 
         // Remove the 3rd element (number 3) from the list
-        
+        numberList.remove(2);
         // Return the updated list
-        return null; // Replace null with the variable you used to store the result
+        return numberList; // Replace null with the variable you used to store the result
     }
 
     /**
