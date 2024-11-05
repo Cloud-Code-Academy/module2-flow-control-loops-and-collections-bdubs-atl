@@ -52,7 +52,7 @@ public with sharing class FlowControlLoopsCollections {
     }
 
     /**
-     * Question 3  <---?????
+     * Question 3  <--Passed. BW
      * Finds the maximum of two numbers.
      * If both numbers are equal, it returns that number.
      * Example: findMax(58, 200) should return 200
@@ -63,9 +63,14 @@ public with sharing class FlowControlLoopsCollections {
     public static Integer findMax(Integer num1, Integer num2) {
         // Initialize largestNum as null
         Integer largestNum = null;
-
-        return null; // Replace null with the variable you used to store the result
-    }
+        if (num1 == null || num2 == null) {
+            return null;
+        } else if (num1 == num2) {
+            return num1;
+        } 
+        return math.max(num1, num2);
+        }
+    
 
 
     /**
@@ -165,7 +170,7 @@ public with sharing class FlowControlLoopsCollections {
 
 
     /**
-     * Question 8
+     * Question 8 Done! BW
      * Sum all the integers up to a given limit.
      * Example: sumUpToLimit(5) should return 15
      * @param intLimit The number up to which integers will be summed.
@@ -177,8 +182,11 @@ public with sharing class FlowControlLoopsCollections {
             
          }
         */
-
-        return null; // Replace null with the variable you used to store the result
+        Integer sumOfAllIntegersUpToLimit = 0;
+        for (Integer i = 1; i <= intLimit; i++){
+            sumOfAllIntegersUpToLimit += i;
+        }
+        return sumOfAllIntegersUpToLimit; 
     }
 
     /**
@@ -270,7 +278,7 @@ public with sharing class FlowControlLoopsCollections {
     }
 
     /**
-     * Question 13
+     * Question 13 <---Done BW
      * Create a list filled with integers based on the input parameter.
      * Example: createIntegerList(5) should return [1, 2, 3, 4, 5] 
      * @param n The last integer in the List.
@@ -278,18 +286,15 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createIntegerList(Integer n) {
         // Create a new list of integers 
-
-        /*
-        for() {
-            //add integer to the list
+        List<Integer> newIntegerList = new List<Integer> ();
+        for (Integer i = 1; i <= n; i++) {
+            newIntegerList.add(i);
         }
-        */ 
-
-        return null; // Replace null with the variable you used to store the result
+        return newIntegerList; 
     }
 
     /**
-     * Question 14
+     * Question 14 <---Correct BW
      * Remove duplicate values from the list of Strings.
      * The returned Set contains the unique strings from the input List.
      * Example: createStringSet(['a', 'b', 'a', 'c']) should return ['a', 'b', 'c']
@@ -299,14 +304,15 @@ public with sharing class FlowControlLoopsCollections {
     public static Set<String> createStringSet(List<String> inputList) {
         // Create a new Set of strings
         Set<String> stringSet = new Set<String>();
+        stringSet.addAll(inputList);
 
         //add strings to the set
 
-        return null; // Replace null with the variable you used to store the result
+        return stringSet; // Replace null with the variable you used to store the result
     }
 
     /**
-     * Question 15
+     * Question 15  <---Correct! BW
      * Iterates over a list of integers and sums only the positive integers.
      * Example: sumPositiveIntegers() should return 12
      * @return The sum of positive integers from the list.
@@ -316,13 +322,17 @@ public with sharing class FlowControlLoopsCollections {
 
         // Loop through the list of integers
             // if the number is negative skip this iteration
-        
-
-        return null; // Replace null with the variable you used to store the result
+            Integer sumOfAllPositiveIntegers = 0;
+            for (Integer i : numbers) {
+                if (i > 0){
+                    sumOfAllPositiveIntegers += i;
+                }
+            }
+            return sumOfAllPositiveIntegers;
     }
 
     /**
-     * Question 16
+     * Question 16 <---Done BW
      * Iterates over a list of strings and searches for a specific word. Once found, it breaks the loop.
      *  Example: findWordInList("World", ['Hello', 'World', 'Goodbye']) should return 1
      * @param wordToFind The word to find in the list.
@@ -331,15 +341,16 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
         // The variable to store the index of the word
-
+        Integer indexLocationOfWord = words.indexOf(wordToFind);
+        for (String w : words) {
+            words.indexOf(wordToFind);
+        }
         // Loop through the list of words
             // If the current word is the word to find, exit the loop
-
-        return null; // Replace null with the variable you used to store the result
+        return indexLocationOfWord; 
     }
-
     /**
-     * Question 17
+     * Question 17  <--Done BW
      * Loop through the list of money and adds them up until it accumulates more than 40 and then stops counting.
      * The change values are in cents and the total is to be calculated in dollars.
      * Example: countMoney() should return 48.02
@@ -348,31 +359,42 @@ public with sharing class FlowControlLoopsCollections {
     public static Decimal countMoney() {
         // The list of money in the wallet, represented in dollars and cents
         List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
-
-        return null; // Replace null with the variable you used to store the result
+        Decimal totalValue = 0.00;
+        for (Decimal d : moneyInWallet) {
+           totalValue += d;
+           if (totalValue > 40.00) {
+            break;
+           }
+        }
+        return totalValue;
     }
+         
 
     /**
-     * Question 18
+     * Question 18 <--Done! BW
      * Create a map that has five key-value pairs to the map, where the keys are the names of fruits and the values are their quantities.
      * Example: addItemsToMap() should return "Apples => 5, Oranges => 10, Bananas => 15, Pears => 20, Grapes => 25"
      * @return The Map of fruits and their quantities.
      */
     public static Map<String, Integer> addItemsToMap() {
         // Initialize an empty Map
-
+        Map<String, Integer> fruitQuantityMap = new Map<String, Integer>();
         // Add key-value pairs to the Map
         // add Apples => 5
         // add Oranges => 10
         // add Bananas => 15
         // add Pears => 20
         // add Grapes => 25
-
-        return null; // Replace null with the variable you used to store the result
+        fruitQuantityMap.put('Apples', 5);
+        fruitQuantityMap.put('Oranges', 10);
+        fruitQuantityMap.put('Bananas', 15);
+        fruitQuantityMap.put('Pears', 20);
+        fruitQuantityMap.put('Grapes', 25);
+        return fruitQuantityMap; 
     }
 
     /**
-     * Question 19
+     * Question 19 Correct!! First Try!!!!!!! BW
      * Create a map where the keys are the names of employees and the values are their salaries.
      * Then returns the salary of the employee whose name is specified.
      * Example: getSalary("John Doe") should return 50000
@@ -382,17 +404,17 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer getSalary(String employeeName) {
         // Initialize a Map
-
+        Map<String, Integer> employeeSalaries = new Map<String, Integer> {'John Doe' => 50000, 'Jane Smith' => 60000, 'Sam Brown' => 55000, 'Alice Johnson' => 65000};
         // Add key-value pairs to the Map
         // add John Doe => 50000
         // add Jane Smith => 60000
         // add Sam Brown => 55000
         // add Alice Johnson => 65000
-
+        Integer employeeSalary = employeeSalaries.get(employeeName);
         // Get the salary of the employee
-
+        return employeeSalary;
         // Return the salary of the employee, or null if the employee is not found in the Map
-        return null; // Replace null with the variable you used to store the result
+         // Replace null with the variable you used to store the result
     }
 
     /**
@@ -408,21 +430,28 @@ public with sharing class FlowControlLoopsCollections {
     public static List<String> getHighPaidEmployees() {
         // Initialize a Map
         Map<String, Integer> employeeSalaries = new Map<String, Integer>();
-
         // Add key-value pairs to the Map
+
         // add John Doe => 50000
         // add Jane Smith => 60000
         // add Sam Brown => 55000
         // add Alice Johnson => 65000
-
+        employeeSalaries.put('John Doe', 50000);
+        employeeSalaries.put('Jane Smith', 60000);
+        employeeSalaries.put('Sam Brown', 55000);
+        employeeSalaries.put('Alice Johnson', 65000);
         // Initialize a list to store the names of high paid employees
-
+        List<String> highPaidEmployees = new List<String>();
+        for (String employeeName: employeeSalaries.keySet()) {
+            if (employeeSalaries.get(employeeName) > 55000) {
+                highPaidEmployees.add(employeeName);
+            }
+        }
         // Iterate over the Map using a for loop
             // Check if the salary of the employee is more than 55000
                 // Add the employee to the list of high paid employees
 
         // Return the list of high paid employees
-        return null; // Replace null with the variable you used to store the result
+        return highPaidEmployees; 
     }
-
 }
